@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
@@ -45,7 +45,7 @@ jobs:
     if: contains(github.ref, 'master') || contains(github.ref, 'tags')
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - name: Select Docker image tag (production only)
         if: contains(github.ref, 'tags')
         run: echo "::set-env name=IMAGE_TAG::${GITHUB_REF##*/}"
@@ -66,7 +66,7 @@ jobs:
     if: contains(github.ref, 'master')
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - run: git fetch --prune --unshallow
       - name: Deploy to Heroku
         env:
@@ -93,7 +93,7 @@ jobs:
     if: contains(github.ref, 'tags')
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - run: git fetch --prune --unshallow
       - name: Deploy to Heroku
         env:
