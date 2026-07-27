@@ -114,7 +114,7 @@ jobs:
             --header "Authorization: Bearer ${HEROKU_API_KEY}" \
             --data '{ "updates": [ { "type": "web", "docker_image": "'$IMAGE_ID'" } ] }'
       - name: Deploy to CleverCloud
-        uses: 47ng/actions-clever-cloud@v1
+        uses: 47ng/actions-clever-cloud@v2.2.0
         with:
           appID: ${{ secrets.CLEVER_APP_ID_PRODUCTION }}
         env:
